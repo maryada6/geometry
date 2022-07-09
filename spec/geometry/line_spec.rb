@@ -30,5 +30,23 @@ RSpec.describe Geometry::Line do
       distance = line.distance
       expect(distance).to eq(4.0)
     end
+
+    it 'should be 2.8284271247461903 for diagonal line with points 2,3 and 4,5' do
+      point_one = Geometry::Point.new(2, 3)
+      point_two = Geometry::Point.new(4, 5)
+      line = Geometry::Line.new(point_one, point_two)
+      distance = line.distance
+      expect(distance).to eq(2.8284271247461903)
+      expect(distance).to eq(2.8284271247461903)
+    end
+
+    it 'should be 2.8284271247461903 for diagonal line with points 4,5 and 2,3' do
+      point_one = Geometry::Point.new(2, 3)
+      point_two = Geometry::Point.new(4, 5)
+      line = Geometry::Line.new(point_one, point_two)
+      distance = line.distance
+      expect(distance).to eq(2.8284271247461903)
+      expect(distance).to eq(2.8284271247461903)
+    end
   end
 end
