@@ -6,4 +6,14 @@ RSpec.describe Geometry::Line do
       expect { Geometry::Line.new(point_one, point_two) }.not_to raise_error
     end
   end
+
+  context "Distance between points" do
+    it 'should be zero for coincident points' do
+      point_one = Geometry::Point.new(1, 2)
+      point_two = Geometry::Point.new(1, 2)
+      line = Geometry::Line.new(point_one, point_two)
+      distance = line.distance
+      expect(distance).to eq(0.0)
+    end
+  end
 end
