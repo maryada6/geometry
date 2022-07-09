@@ -15,5 +15,12 @@ RSpec.describe Geometry::Line do
       distance = line.distance
       expect(distance).to eq(0.0)
     end
+    it 'should be 4.0 for horizontal line with points 0,0 and 4,0 ' do
+      point_one = Geometry::Point.new(0, 0)
+      point_two = Geometry::Point.new(4, 0)
+      line = Geometry::Line.new(point_one, point_two)
+      distance = line.distance
+      expect(distance).to eq(4.0)
+    end
   end
 end
