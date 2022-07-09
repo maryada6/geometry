@@ -1,6 +1,4 @@
 require "geometry/version"
-
+require "geometry/point"
 module Geometry
-  class Error < StandardError; end
-  # Your code goes here...
 end
