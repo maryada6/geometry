@@ -4,6 +4,24 @@
 
 A library to compute distance between two given points.
 
+## Usage
+
+Point Entity:
+To use the Point class import it in the required file. Then make the object like:<br>
+`<variable_name> = Point(<value of x coordinate>, <value of y coordinate>)`
+
+
+Line Entity: To use the line entity import it in the required file. Then make the object like:<br>
+`<variable_name> = Line(point_A, point_B)`
+
+NOTE: point_A, point_B are objects of point class.
+
+To calculate the length of a line call distance property on the object like:<br>
+`<variable_name>.distance`
+
+To calculate distance between two points using compute function:<br>
+`<point_object_one>.distance(<point_object_two>)`
+
 ## Installation
 
 Add this geometry to your application's Gemfile:

@@ -14,5 +14,14 @@ module Geometry
       end
 
     end
+
+    def distance(point)
+      x_coordinate_difference = (point.x_coordinate - @x_coordinate).abs
+      y_coordinate_difference = (point.y_coordinate - @y_coordinate).abs
+
+      distance_between_points = Math.sqrt(x_coordinate_difference ** 2 + y_coordinate_difference ** 2)
+      distance_between_points
+    end
+
   end
 end
