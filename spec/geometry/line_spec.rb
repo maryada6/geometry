@@ -1,52 +1,23 @@
 RSpec.describe Geometry::Line do
   context "Line initialization" do
-    it "should be initialized with two points" do
+    let(:point_one) { Geometry::Point.new(1, 2) }
+    it "should initialize with two points" do
       point_one = Geometry::Point.new(1, 2)
       point_two = Geometry::Point.new(0, 0)
+
       expect { Geometry::Line.new(point_one, point_two) }.not_to raise_error
     end
-  end
 
-  context "Distance between points" do
-    it 'should be zero for coincident points' do
+    it 'should not initialise line with inputs  that are not point' do
+      expect { Geometry::Line.new('3', '2') }.to raise_exception("Cannot initialise line with inputs  that are not point")
+    end
+
+    it "should initialize with distance between two points" do
       point_one = Geometry::Point.new(1, 2)
       point_two = Geometry::Point.new(1, 2)
-      line = Geometry::Line.new(point_one, point_two)
-      distance = line.distance
-      expect(distance).to eq(0.0)
-    end
-    it 'should be 4.0 for horizontal line with points 0,0 and 4,0 ' do
-      point_one = Geometry::Point.new(0, 0)
-      point_two = Geometry::Point.new(4, 0)
-      line = Geometry::Line.new(point_one, point_two)
-      distance = line.distance
-      expect(distance).to eq(4.0)
-    end
 
-    it 'should be 4.0 for vertical line with points 0,0 and 0,4 ' do
-      point_one = Geometry::Point.new(0, 0)
-      point_two = Geometry::Point.new(0, 4)
       line = Geometry::Line.new(point_one, point_two)
-      distance = line.distance
-      expect(distance).to eq(4.0)
-    end
-
-    it 'should be 2.8284271247461903 for diagonal line with points 2,3 and 4,5' do
-      point_one = Geometry::Point.new(2, 3)
-      point_two = Geometry::Point.new(4, 5)
-      line = Geometry::Line.new(point_one, point_two)
-      distance = line.distance
-      expect(distance).to eq(2.8284271247461903)
-      expect(distance).to eq(2.8284271247461903)
-    end
-
-    it 'should be 2.8284271247461903 for diagonal line with points 4,5 and 2,3' do
-      point_one = Geometry::Point.new(2, 3)
-      point_two = Geometry::Point.new(4, 5)
-      line = Geometry::Line.new(point_one, point_two)
-      distance = line.distance
-      expect(distance).to eq(2.8284271247461903)
-      expect(distance).to eq(2.8284271247461903)
+      expect(line.line_length).to be 0.00
     end
   end
 end

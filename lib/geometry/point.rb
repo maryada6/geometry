@@ -15,12 +15,15 @@ module Geometry
 
     end
 
-    def distance(point)
-      x_coordinate_difference = (point.x_coordinate - @x_coordinate).abs
-      y_coordinate_difference = (point.y_coordinate - @y_coordinate).abs
+    def distance_from(target_point)
+      if (!target_point.is_a?(Point))
+        raise "Cannot calculate distance for an input that is not a point"
+      end
+      x_coordinate_difference = (target_point.x_coordinate - @x_coordinate).abs
+      y_coordinate_difference = (target_point.y_coordinate - @y_coordinate).abs
 
       distance_between_points = Math.sqrt(x_coordinate_difference ** 2 + y_coordinate_difference ** 2)
-      distance_between_points
+      distance_between_points.round(2)
     end
 
   end
